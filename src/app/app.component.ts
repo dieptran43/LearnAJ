@@ -12,6 +12,9 @@ import { Component } from '@angular/core';
   <h3 [class.redColor]="applyClass"> Thong tin class Apply</h3>
   <h1 [style.color]="blueTrue ?'blue':'yellow'"> Noi dung thay doi theo binding style</h1>
   
+  <input type="text" [value]="welcomeText"  #nameText/> 
+  <button (mouseover)="onClick()">Re chuot vao nhan qua</button>
+  <h2>Ban da nhap: {{nameText.value}}</h2>
   `,
   styles: [`
     .redColor{
@@ -26,5 +29,9 @@ export class AppComponent  {
   public welcomeText ="Hay nhap gia tri mong muon";
   public applyClass = true;
   public blueTrue = false;
+
+  onClick(){
+    console.log('Da click button');
+  }
 
  }

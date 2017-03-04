@@ -18,10 +18,13 @@ var AppComponent = (function () {
         this.applyClass = true;
         this.blueTrue = false;
     }
+    AppComponent.prototype.onClick = function () {
+        console.log('Da click button');
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Hello {{name}}</h1><h2 style=\"color: red;\"> A Diep tu lam ne</h2>  \n  <my_tutorial></my_tutorial>\n  <my_bindData></my_bindData>  \n  <h1>{{myBindData}}</h1>\n  <img [src]=\"imageSrc\" />\n  <br/>Class binding va style binding\n  <h3 [class.redColor]=\"applyClass\"> Thong tin class Apply</h3>\n  <h1 [style.color]=\"blueTrue ?'blue':'yellow'\"> Noi dung thay doi theo binding style</h1>\n  \n  ",
+            template: "\n  <h1>Hello {{name}}</h1><h2 style=\"color: red;\"> A Diep tu lam ne</h2>  \n  <my_tutorial></my_tutorial>\n  <my_bindData></my_bindData>  \n  <h1>{{myBindData}}</h1>\n  <img [src]=\"imageSrc\" />\n  <br/>Class binding va style binding\n  <h3 [class.redColor]=\"applyClass\"> Thong tin class Apply</h3>\n  <h1 [style.color]=\"blueTrue ?'blue':'yellow'\"> Noi dung thay doi theo binding style</h1>\n  \n  <input type=\"text\" [value]=\"welcomeText\"  #nameText/> \n  <button (mouseover)=\"onClick()\">Re chuot vao nhan qua</button>\n  <h2>Ban da nhap: {{nameText.value}}</h2>\n  ",
             styles: ["\n    .redColor{\n      color: red;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [])
