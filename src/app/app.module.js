@@ -16,6 +16,8 @@ var stuctualDirectives_component_1 = require('./stuctualDirectives.component');
 var bindDataAngular_component_1 = require('./bindDataAngular.component');
 //nhap lieu phai import form NgModule
 var forms_1 = require('@angular/forms');
+//
+var tuongtacComponent_component_1 = require('./tuongtacComponent.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,7 +25,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent, tutorial_component_1.TutorialComponent,
-                stuctualDirectives_component_1.StuctualDirectives, bindDataAngular_component_1.BindDataAngular],
+                stuctualDirectives_component_1.StuctualDirectives, bindDataAngular_component_1.BindDataAngular, tuongtacComponent_component_1.TuongTacComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

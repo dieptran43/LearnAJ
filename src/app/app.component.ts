@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import {TuongTacComponent}  from './tuongtacComponent.component';
 
 @Component({
   selector: 'my-app',
@@ -20,7 +21,14 @@ import { Component } from '@angular/core';
   <input type="text" [(ngModel)]="fname"/>
   <input type="text" [(ngModel)]="lname"/>
   Full name: {{fname}} {{lname}}
-
+<br/>
+Moi nhap gia tri de truyen xuong component con nhe ku
+<input type="text" #textNameInput (keyup)="0" />
+<my_TuongTacComponent *ngFor="let item of  listNames" [nameInput]="textNameInput.value" (onVote)="parentVote($event)"></my_TuongTacComponent>
+<h2>Ket qua la Chon: {{agree}}, Khong : {{disgree}}</h2>
+<br/>
+Dung o cha doi ten cho con
+<button (click)="changeName()">Doi ten</button>
   `,
   styles: [`
     .redColor{
@@ -38,6 +46,21 @@ export class AppComponent  {
 
   onClick(){
     console.log('Da click button');
+  }
+
+  public agree: number = 0;
+  public disgree: number = 0;
+  public listNames = ['A. Diep','Chi Hieu','A Quan','Chi Nga'];
+  parentVote(agree:boolean){
+    if(agree) this.agree++;
+    else this.disgree++;
+  }
+
+  @ViewChild(TuongTacComponent)
+  private tuongTacComponent: TuongTacComponent;
+  
+  changeName(){
+    this.tuongTacComponent.setName('Dung o cha, doi ten cho con');
   }
 
  }

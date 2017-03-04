@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var tuongtacComponent_component_1 = require('./tuongtacComponent.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.name = 'Angular';
@@ -17,14 +18,30 @@ var AppComponent = (function () {
         this.welcomeText = "Hay nhap gia tri mong muon";
         this.applyClass = true;
         this.blueTrue = false;
+        this.agree = 0;
+        this.disgree = 0;
+        this.listNames = ['A. Diep', 'Chi Hieu', 'A Quan', 'Chi Nga'];
     }
     AppComponent.prototype.onClick = function () {
         console.log('Da click button');
     };
+    AppComponent.prototype.parentVote = function (agree) {
+        if (agree)
+            this.agree++;
+        else
+            this.disgree++;
+    };
+    AppComponent.prototype.changeName = function () {
+        this.tuongTacComponent.setName('Dung o cha, doi ten cho con');
+    };
+    __decorate([
+        core_1.ViewChild(tuongtacComponent_component_1.TuongTacComponent), 
+        __metadata('design:type', tuongtacComponent_component_1.TuongTacComponent)
+    ], AppComponent.prototype, "tuongTacComponent", void 0);
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Hello {{name}}</h1><h2 style=\"color: red;\"> A Diep tu lam ne</h2>  \n  <my_tutorial></my_tutorial>\n  <my_bindData></my_bindData>  \n  <h1>{{myBindData}}</h1>\n  <img [src]=\"imageSrc\" />\n  <br/>Class binding va style binding\n  <h3 [class.redColor]=\"applyClass\"> Thong tin class Apply</h3>\n  <h1 [style.color]=\"blueTrue ?'blue':'yellow'\"> Noi dung thay doi theo binding style</h1>\n  \n  <input type=\"text\" [value]=\"welcomeText\"  #nameText/> \n  <button (mouseover)=\"onClick()\">Re chuot vao nhan qua</button>\n  <h2>Ban da nhap: {{nameText.value}}</h2>\n\n  <br/>Day la noi dung TWO WAY BINDING\n  <input type=\"text\" [(ngModel)]=\"fname\"/>\n  <input type=\"text\" [(ngModel)]=\"lname\"/>\n  Full name: {{fname}} {{lname}}\n\n  ",
+            template: "\n  <h1>Hello {{name}}</h1><h2 style=\"color: red;\"> A Diep tu lam ne</h2>  \n  <my_tutorial></my_tutorial>\n  <my_bindData></my_bindData>  \n  <h1>{{myBindData}}</h1>\n  <img [src]=\"imageSrc\" />\n  <br/>Class binding va style binding\n  <h3 [class.redColor]=\"applyClass\"> Thong tin class Apply</h3>\n  <h1 [style.color]=\"blueTrue ?'blue':'yellow'\"> Noi dung thay doi theo binding style</h1>\n  \n  <input type=\"text\" [value]=\"welcomeText\"  #nameText/> \n  <button (mouseover)=\"onClick()\">Re chuot vao nhan qua</button>\n  <h2>Ban da nhap: {{nameText.value}}</h2>\n\n  <br/>Day la noi dung TWO WAY BINDING\n  <input type=\"text\" [(ngModel)]=\"fname\"/>\n  <input type=\"text\" [(ngModel)]=\"lname\"/>\n  Full name: {{fname}} {{lname}}\n<br/>\nMoi nhap gia tri de truyen xuong component con nhe ku\n<input type=\"text\" #textNameInput (keyup)=\"0\" />\n<my_TuongTacComponent *ngFor=\"let item of  listNames\" [nameInput]=\"textNameInput.value\" (onVote)=\"parentVote($event)\"></my_TuongTacComponent>\n<h2>Ket qua la Chon: {{agree}}, Khong : {{disgree}}</h2>\n<br/>\nDung o cha doi ten cho con\n<button (click)=\"changeName()\">Doi ten</button>\n  ",
             styles: ["\n    .redColor{\n      color: red;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [])
