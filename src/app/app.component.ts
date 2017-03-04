@@ -15,6 +15,12 @@ import { Component } from '@angular/core';
   <input type="text" [value]="welcomeText"  #nameText/> 
   <button (mouseover)="onClick()">Re chuot vao nhan qua</button>
   <h2>Ban da nhap: {{nameText.value}}</h2>
+
+  <br/>Day la noi dung TWO WAY BINDING
+  <input type="text" [(ngModel)]="fname"/>
+  <input type="text" [(ngModel)]="lname"/>
+  Full name: {{fname}} {{lname}}
+
   `,
   styles: [`
     .redColor{
