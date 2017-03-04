@@ -15,11 +15,14 @@ var AppComponent = (function () {
         this.myBindData = "Day la Bind Data One way binding";
         this.imageSrc = "http://lorempixel.com/300/300";
         this.welcomeText = "Hay nhap gia tri mong muon";
+        this.applyClass = true;
+        this.blueTrue = false;
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Hello {{name}}</h1><h2 style=\"color: red;\"> A Diep tu lam ne</h2>  \n  <my_tutorial></my_tutorial>\n  <my_bindData></my_bindData>  \n  <h1>{{myBindData}}</h1>\n  <img [src]=\"imageSrc\" />\n  <br/>\n  <input type=\"text\" [value]=\"welcomeText\"  #nameText/>\n  <h2>Ban da nhap: [nameText]</h2>\n  \n  ",
+            template: "\n  <h1>Hello {{name}}</h1><h2 style=\"color: red;\"> A Diep tu lam ne</h2>  \n  <my_tutorial></my_tutorial>\n  <my_bindData></my_bindData>  \n  <h1>{{myBindData}}</h1>\n  <img [src]=\"imageSrc\" />\n  <br/>Class binding va style binding\n  <h3 [class.redColor]=\"applyClass\"> Thong tin class Apply</h3>\n  <h1 [style.color]=\"blueTrue ?'blue':'yellow'\"> Noi dung thay doi theo binding style</h1>\n  \n  ",
+            styles: ["\n    .redColor{\n      color: red;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
