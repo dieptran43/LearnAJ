@@ -12,11 +12,15 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
         this.name = "angular 2";
+        this.cities = [{ Id: 1, Name: "Anh Diep" }, { Id: 2, Name: "Chi Duong" }, { Id: 3, Name: "Ba Tam" }];
     }
+    AppComponent.prototype.onSubmit = function (value) {
+        console.log(value);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>Hello {{name}}</h1>\n  <h2 [class]=\"'redColor'\"> Dang o AppComponent</h2>  \n  <my_pipes></my_pipes>\n  ",
+            templateUrl: 'app/app.component.html',
             styles: ["\n    .redColor{\n      color: red;\n    }\n  "]
         }), 
         __metadata('design:paramtypes', [])

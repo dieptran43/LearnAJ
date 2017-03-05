@@ -23,7 +23,7 @@ var TutorialComponent = (function () {
     TutorialComponent = __decorate([
         core_1.Component({
             selector: 'my_tutorial',
-            template: "\n        <h2>This is template tutorial of TutorialComponent</h2>\n        <p [ngClass]=\"{classOne:cone, classTwo:ctwo}\">This is <strong>ngClass nhe ku </strong> apply style</p>\n        <button (click)=\"toggle()\">Click toggle</button>\n        <h1>Cai Directive ngStyle nay laf style inline</h1>\n        <p [ngStyle]=\"{'font-style':style, 'font-size':size}\"> Noi dung muon hien thi inline ne</p>\n        <my_stuctualDirectives></my_stuctualDirectives>\n    ",
+            template: "\n        <h2>This is template tutorial of TutorialComponent</h2>\n        <p [ngClass]=\"{classOne:cone, classTwo:ctwo}\">This is <strong>ngClass nhe ku </strong> apply style</p>        \n    ",
             styles: [
                 "\n            .classOne{\n                color: blue;\n            }\n            .classTwo{\n                background-color: red;\n            }\n        "
             ],
