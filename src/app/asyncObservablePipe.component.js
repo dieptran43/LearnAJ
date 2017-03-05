@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = "angular 2";
+var Observable_1 = require("rxjs/Observable");
+var AsyncObservablePipeComponent = (function () {
+    function AsyncObservablePipeComponent() {
+        this.time = new Observable_1.Observable(function (observer) {
+            setInterval(function () { return observer.next(new Date().toString()); }, 1000);
+        });
     }
-    AppComponent = __decorate([
+    AsyncObservablePipeComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n  <h1>Hello {{name}}</h1>\n  <h2 [class]=\"'redColor'\"> Dang o AppComponent</h2>  \n  <my_pipes></my_pipes>\n  ",
-            styles: ["\n    .redColor{\n      color: red;\n    }\n  "]
+            selector: 'async-observable-pipe',
+            template: '<div><code>observable|async</code>: Time: {{ time | async }}</div>'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AsyncObservablePipeComponent);
+    return AsyncObservablePipeComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AsyncObservablePipeComponent = AsyncObservablePipeComponent;
+//# sourceMappingURL=asyncObservablePipe.component.js.map

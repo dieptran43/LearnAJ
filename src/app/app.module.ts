@@ -9,11 +9,15 @@ import { BindDataAngular } from './bindDataAngular.component';
 import { FormsModule } from '@angular/forms';
 //
 import { TuongTacComponent } from './tuongtacComponent.component';
+//Su dung pipes
+import { SuDungPipes } from './sudungPipes.component';
+
+import { AsyncObservablePipeComponent } from './asyncObservablePipe.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, TutorialComponent,
-   StuctualDirectives, BindDataAngular, TuongTacComponent ],
+   StuctualDirectives, BindDataAngular, TuongTacComponent, SuDungPipes, AsyncObservablePipeComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -18,6 +18,9 @@ var bindDataAngular_component_1 = require('./bindDataAngular.component');
 var forms_1 = require('@angular/forms');
 //
 var tuongtacComponent_component_1 = require('./tuongtacComponent.component');
+//Su dung pipes
+var sudungPipes_component_1 = require('./sudungPipes.component');
+var asyncObservablePipe_component_1 = require('./asyncObservablePipe.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,7 +28,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent, tutorial_component_1.TutorialComponent,
-                stuctualDirectives_component_1.StuctualDirectives, bindDataAngular_component_1.BindDataAngular, tuongtacComponent_component_1.TuongTacComponent],
+                stuctualDirectives_component_1.StuctualDirectives, bindDataAngular_component_1.BindDataAngular, tuongtacComponent_component_1.TuongTacComponent, sudungPipes_component_1.SuDungPipes, asyncObservablePipe_component_1.AsyncObservablePipeComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
