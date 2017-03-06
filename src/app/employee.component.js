@@ -15,13 +15,17 @@ var EmployeeComponent = (function () {
         this.employeeService = employeeService;
     }
     EmployeeComponent.prototype.ngOnInit = function () {
-        this.employees = this.employeeService.GetList();
+        var _this = this;
+        this.employeeService.GetList().subscribe(function (respone) {
+            _this.employees = respone;
+        }, function (error) {
+            console.log("Loi API");
+        });
     };
     EmployeeComponent = __decorate([
         core_1.Component({
             selector: "my_employee",
             templateUrl: "./app/employee.component.html",
-            providers: [employee_service_1.EmployeeService]
         }), 
         __metadata('design:paramtypes', [employee_service_1.EmployeeService])
     ], EmployeeComponent);

@@ -1,15 +1,15 @@
-import {Injectable}  from   '@angular/core';
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
-export class EmployeeService{
-    GetList(): any[] {
-        let emplist: any[] =[
-        {Id:1, Name:"A Diep 1"},
-            {Id:2, Name:"A Diep 2"},
-            {Id:3, Name:"A Diep 3"},
-            {Id:4, Name:"A Diep 4"},
-                {Id:5, Name:"A Diep 5"},
-                 {Id:6, Name:"Almvgnfdsklgjhkdgfsh Diep 5"},
-        ];
-        return emplist;
+@Injectable()
+export class EmployeeService {
+    private apiURL = "http://58bcc96d022e81120031f759.mockapi.io/api/employees";
+    constructor(private _http: Http) {
+
+    }
+    GetList(): Observable<any[]> {
+        return this._http.get(this.apiURL).map((response: Response) => response.json());
     }
 }

@@ -1,7 +1,31 @@
-<ul>
+<!--<ul>
     <li *ngFor="let i of employees" [value]="i.Id" >{{i.Name}}</li>
 </ul>
 
 <select  class="form-control" name="listEmp" #listEmp="ngModel" ngModel>
     <option *ngFor="let item of employees" [value]="item.Id">{{item.Name}}</option>
-</select>
+</select>-->
+
+<ul>
+    <li *ngFor="let i of employees" [value]="i.id" >{{i.name}}</li>
+</ul>
+<table  class="table"> 
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Status</td>
+            <td>Create</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of employees">
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.status}}</td>
+            <td>{{i.createdAt | date:mediumTime}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,5 +1,4 @@
 <h1>Day la html User Form</h1>
-<my_employee></my_employee>
 
 <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
     <div class="form-group">
@@ -45,3 +44,4 @@
             </div>
             <button type="submit" [disabled]=!userForm.valid class="btn btn-primary">Submit nhe</button>
 </form>
+<my_employee></my_employee>
