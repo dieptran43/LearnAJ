@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let i of employees" [value]="i.Id" >{{i.Name}}</li>
+</ul>
+
+<select  class="form-control" name="listEmp" #listEmp="ngModel" ngModel>
+    <option *ngFor="let item of employees" [value]="item.Id">{{item.Name}}</option>
+</select>
