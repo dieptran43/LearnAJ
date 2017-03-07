@@ -18,6 +18,8 @@ var employee_component_1 = require('./employee.component');
 var employee_service_1 = require('./services/employee.service');
 //Ban loi ko tim thay trang
 var notFound_component_1 = require('./notFound.component');
+//
+var employee_detail_component_1 = require('./employee-detail.component');
 //import Routing vao
 var app_routes_1 = require('./app.routes');
 //Nhung home component
@@ -29,7 +31,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
             declarations: [app_component_1.AppComponent, tutorial_component_1.TutorialComponent, employee_component_1.EmployeeComponent,
-                home_component_1.HomeComponent, notFound_component_1.NotFoundComponent],
+                home_component_1.HomeComponent, notFound_component_1.NotFoundComponent, employee_detail_component_1.EmployeeDetailComponent],
             providers: [employee_service_1.EmployeeService],
             bootstrap: [app_component_1.AppComponent]
         }), 

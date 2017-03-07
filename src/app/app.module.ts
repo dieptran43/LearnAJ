@@ -9,6 +9,8 @@ import { EmployeeComponent } from './employee.component';
 import { EmployeeService } from './services/employee.service';
 //Ban loi ko tim thay trang
 import { NotFoundComponent } from './notFound.component';
+//
+import { EmployeeDetailComponent } from './employee-detail.component';
 
 
 //import Routing vao
@@ -20,7 +22,7 @@ import {HomeComponent } from './home.component';
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule , appRoutes],
   declarations: [ AppComponent, TutorialComponent, EmployeeComponent,
-     HomeComponent, NotFoundComponent ],
+     HomeComponent, NotFoundComponent, EmployeeDetailComponent ],
   providers: [EmployeeService],
   bootstrap:    [ AppComponent ]
 })
