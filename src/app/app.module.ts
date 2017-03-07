@@ -9,10 +9,15 @@ import { EmployeeComponent } from './employee.component';
 import { EmployeeService } from './services/employee.service';
 
 
+//import Routing vao
+import {appRoutes} from './app.routes';
+//Nhung home component
+import {HomeComponent } from './home.component';
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpModule ],
-  declarations: [ AppComponent, TutorialComponent, EmployeeComponent ],
+  imports:      [ BrowserModule, FormsModule, HttpModule , appRoutes],
+  declarations: [ AppComponent, TutorialComponent, EmployeeComponent, HomeComponent ],
   providers: [EmployeeService],
   bootstrap:    [ AppComponent ]
 })

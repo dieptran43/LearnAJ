@@ -16,13 +16,17 @@ var app_component_1 = require('./app.component');
 var tutorial_component_1 = require('./tutorial.component');
 var employee_component_1 = require('./employee.component');
 var employee_service_1 = require('./services/employee.service');
+//import Routing vao
+var app_routes_1 = require('./app.routes');
+//Nhung home component
+var home_component_1 = require('./home.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, tutorial_component_1.TutorialComponent, employee_component_1.EmployeeComponent],
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
+            declarations: [app_component_1.AppComponent, tutorial_component_1.TutorialComponent, employee_component_1.EmployeeComponent, home_component_1.HomeComponent],
             providers: [employee_service_1.EmployeeService],
             bootstrap: [app_component_1.AppComponent]
         }), 
