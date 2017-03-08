@@ -1,0 +1,23 @@
+<table class="table" *ngIf="employees">
+    <tr>
+        <td>id</td>
+        <td>{{employees.id}}</td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>{{employees.name}}</td>
+    </tr>
+    <tr>
+        <td>age</td>
+        <td>{{employees.age}}</td>
+    </tr>
+    <tr>
+        <td>createdAt</td>
+        <td>{{employees.createdAt |date: time}}</td>
+    </tr>
+</table>
+<a class="btn btn-default" [routerLink]="['/employee']">Go Back</a>
+<a class="btn btn-primary" [routerLink]="['projects']">Project</a>
+<a class="btn btn-primary" [routerLink]="['overview']">Overview</a>
+
+<router-outlet></router-outlet>

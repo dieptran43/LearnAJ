@@ -10,22 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
+var employee_service_1 = require('./services/employee.service');
 var EmployeeDetailComponent = (function () {
-    function EmployeeDetailComponent(router, activatedRoute) {
+    function EmployeeDetailComponent(router, activatedRoute, employeeService) {
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.employeeService = employeeService;
     }
     EmployeeDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
+        //debugger;
         this.subscription = this.activatedRoute.params.subscribe(function (param) {
             _this._id = param['id'];
-            alert(_this._id);
+            //alert(this._id);
+            _this.employeeService.GetById(_this._id).subscribe(function (respone) {
+                //alert(respone);
+                _this.employees = respone;
+            }, function (error) {
+                console.log("Loi API");
+            });
         });
     };
     EmployeeDetailComponent.prototype.goToEmployee = function () {
-        this.router.navigate(['employee']);
+        //debugger;
+        //this.router.navigate(['employee']);
     };
     EmployeeDetailComponent.prototype.ngOnDestroy = function () {
+        //debugger;
         this.subscription.unsubscribe();
     };
     EmployeeDetailComponent = __decorate([
@@ -33,7 +44,7 @@ var EmployeeDetailComponent = (function () {
             selector: 'employee-detail-component',
             templateUrl: './app/employee-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, employee_service_1.EmployeeService])
     ], EmployeeDetailComponent);
     return EmployeeDetailComponent;
 }());

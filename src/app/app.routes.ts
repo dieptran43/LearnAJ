@@ -3,13 +3,21 @@ import { HomeComponent } from './home.component';
 import { EmployeeComponent } from './employee.component';
 import { NotFoundComponent } from './notFound.component';
 import { EmployeeDetailComponent } from './employee-detail.component';
+import { EmployeeOverviewComponent } from "./employee-overview.component";
+import { EmployeeProjectsComponent } from "./employee-projects.component";
 
 const routing: Routes = [
     { path: '', component: HomeComponent },
     //redirectTo link
     //{ path:'', redirectTo: 'employee', pathMatch:"full" },
     { path: 'employee', component: EmployeeComponent },
-    { path: 'employee-detail/:id', component: EmployeeDetailComponent },
+    { path: 'employee-detail/:id', component: EmployeeDetailComponent,
+    children:[
+        {path:'', redirectTo: 'overview', pathMatch:"full"},
+        {path:'overview', component: EmployeeOverviewComponent},
+        {path: 'projects', component: EmployeeProjectsComponent}
+    ]
+ },
     // { path: '**', component: NotFoundComponent }
 ]
 

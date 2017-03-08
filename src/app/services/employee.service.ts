@@ -12,4 +12,10 @@ export class EmployeeService {
     GetList(): Observable<any[]> {
         return this._http.get(this.apiURL).map((response: Response) => response.json());
     }
+
+     GetById(id: number): Observable<any> {
+        let uRL = this.apiURL +"/"+ id;
+        //debugger
+        return this._http.get(uRL).map((response: Response) => response.json());
+    }
 }

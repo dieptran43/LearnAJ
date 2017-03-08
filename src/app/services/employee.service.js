@@ -19,6 +19,11 @@ var EmployeeService = (function () {
     EmployeeService.prototype.GetList = function () {
         return this._http.get(this.apiURL).map(function (response) { return response.json(); });
     };
+    EmployeeService.prototype.GetById = function (id) {
+        var uRL = this.apiURL + "/" + id;
+        //debugger
+        return this._http.get(uRL).map(function (response) { return response.json(); });
+    };
     EmployeeService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
