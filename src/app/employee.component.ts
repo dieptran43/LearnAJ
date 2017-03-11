@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EmployeeService } from './services/employee.service';
 
 
@@ -12,6 +12,7 @@ export class EmployeeComponent implements OnInit {
     public employees: any[];
     public pages: number[];
     public currentPage: number;
+    public keyWord: string;
 
     constructor(private employeeService: EmployeeService,
         private router: Router, private activatedRouter: ActivatedRoute) {
@@ -19,17 +20,42 @@ export class EmployeeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.activatedRouter.queryParams.subscribe(param=>{
-            this.currentPage = param['pageNumber'] || 1;
+        this.activatedRouter.queryParams.subscribe(param => {
+            this.currentPage = param['page'] || 1;
             //alert(this.currentPage);
         })
+        this.LoadData();
+    }
 
+    Delete(id: number) {
+        let cofm = confirm("Are you sure to delete this item?");
+        if (cofm) {
+            this.employeeService.Delete(id).subscribe(respone => {
+                if (respone) {
+                    alert('Chuc mung xoa thanh cong lelelel!@@@@@@@@@');
+                    this.router.navigate(['employee']);
+                    this.LoadData();
+                }
+            })
+        }
+    }
+
+    LoadData() {
         this.employeeService.GetList().subscribe((respone: any[]) => {
-            this.employees = respone;            
-        }, error =>{
+            this.employees = respone;
+        }, error => {
             console.log("Loi API");
         });
-        this.pages= [1,2,3,4,5,6,7,8,9];
+        this.pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    }
 
+    //Tim kiem
+    Search(){
+        this.employeeService.Search(this.keyWord).subscribe((respone: any[]) => {
+            this.employees = respone;
+        }, error => {
+            console.log("Loi API");
+        });
+        this.pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     }
 }

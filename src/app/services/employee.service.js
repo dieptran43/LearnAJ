@@ -14,22 +14,28 @@ require('rxjs/add/operator/map');
 var EmployeeService = (function () {
     function EmployeeService(_http) {
         this._http = _http;
-        this.apiURL = "http://58bcc96d022e81120031f759.mockapi.io/api/employees";
+        this.apiURL = "http://58bcc96d022e81120031f759.mockapi.io/api/employees/";
     }
     EmployeeService.prototype.GetList = function () {
         return this._http.get(this.apiURL).map(function (response) { return response.json(); });
     };
     EmployeeService.prototype.GetById = function (id) {
-        var uRL = this.apiURL + "/" + id;
+        var uRL = this.apiURL + id;
         //debugger
         return this._http.get(uRL).map(function (response) { return response.json(); });
     };
     EmployeeService.prototype.Update = function (id, data) {
-        return this._http.put(this.apiURL + "/" + id, data).map(function (response) { return response.json(); });
+        return this._http.put(this.apiURL + id, data).map(function (response) { return response.json(); });
     };
     EmployeeService.prototype.Add = function (data) {
         alert('Moi vao phuong thuc Add');
         return this._http.post(this.apiURL, data).map(function (response) { return response.json(); });
+    };
+    EmployeeService.prototype.Delete = function (id) {
+        return this._http.delete(this.apiURL + id).map(function (respone) { return respone.json; });
+    };
+    EmployeeService.prototype.Search = function (keyWord) {
+        return this._http.get(this.apiURL + "?search=" + keyWord).map(function (response) { return response.json(); });
     };
     EmployeeService = __decorate([
         core_1.Injectable(), 

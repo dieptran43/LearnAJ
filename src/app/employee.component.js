@@ -20,10 +20,37 @@ var EmployeeComponent = (function () {
     EmployeeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.activatedRouter.queryParams.subscribe(function (param) {
-            _this.currentPage = param['pageNumber'] || 1;
+            _this.currentPage = param['page'] || 1;
             //alert(this.currentPage);
         });
+        this.LoadData();
+    };
+    EmployeeComponent.prototype.Delete = function (id) {
+        var _this = this;
+        var cofm = confirm("Are you sure to delete this item?");
+        if (cofm) {
+            this.employeeService.Delete(id).subscribe(function (respone) {
+                if (respone) {
+                    alert('Chuc mung xoa thanh cong lelelel!@@@@@@@@@');
+                    _this.router.navigate(['employee']);
+                    _this.LoadData();
+                }
+            });
+        }
+    };
+    EmployeeComponent.prototype.LoadData = function () {
+        var _this = this;
         this.employeeService.GetList().subscribe(function (respone) {
+            _this.employees = respone;
+        }, function (error) {
+            console.log("Loi API");
+        });
+        this.pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    };
+    //Tim kiem
+    EmployeeComponent.prototype.Search = function () {
+        var _this = this;
+        this.employeeService.Search(this.keyWord).subscribe(function (respone) {
             _this.employees = respone;
         }, function (error) {
             console.log("Loi API");
