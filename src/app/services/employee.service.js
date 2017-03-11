@@ -24,6 +24,13 @@ var EmployeeService = (function () {
         //debugger
         return this._http.get(uRL).map(function (response) { return response.json(); });
     };
+    EmployeeService.prototype.Update = function (id, data) {
+        return this._http.put(this.apiURL + "/" + id, data).map(function (response) { return response.json(); });
+    };
+    EmployeeService.prototype.Add = function (data) {
+        alert('Moi vao phuong thuc Add');
+        return this._http.post(this.apiURL, data).map(function (response) { return response.json(); });
+    };
     EmployeeService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

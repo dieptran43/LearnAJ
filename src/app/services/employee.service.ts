@@ -18,4 +18,15 @@ export class EmployeeService {
         //debugger
         return this._http.get(uRL).map((response: Response) => response.json());
     }
+
+    Update(id: number, data: any): Observable<any> {
+        return this._http.put(this.apiURL +"/"+ id,data).map((response: Response) =>response.json())
+    }
+
+    Add(data: any){
+        alert('Moi vao phuong thuc Add');
+        return this._http.post(this.apiURL, data).map((response: Response)=>response.json())
+    }
+
+
 }

@@ -21,7 +21,7 @@ var EmployeeComponent = (function () {
         var _this = this;
         this.activatedRouter.queryParams.subscribe(function (param) {
             _this.currentPage = param['pageNumber'] || 1;
-            alert(_this.currentPage);
+            //alert(this.currentPage);
         });
         this.employeeService.GetList().subscribe(function (respone) {
             _this.employees = respone;

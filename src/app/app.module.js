@@ -32,6 +32,9 @@ var employee_overview_component_1 = require('./employee-overview.component');
 var employee_projects_component_1 = require('./employee-projects.component');
 //
 var login_component_1 = require('./login.component');
+///
+var employee_add_component_1 = require('./employee-add.component');
+var employee_edit_component_1 = require('./employee-edit.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -40,7 +43,8 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
             declarations: [app_component_1.AppComponent, tutorial_component_1.TutorialComponent, employee_component_1.EmployeeComponent,
                 home_component_1.HomeComponent, notFound_component_1.NotFoundComponent, employee_detail_component_1.EmployeeDetailComponent,
-                employee_overview_component_1.EmployeeOverviewComponent, employee_projects_component_1.EmployeeProjectsComponent, login_component_1.LoginComponent],
+                employee_overview_component_1.EmployeeOverviewComponent, employee_projects_component_1.EmployeeProjectsComponent, login_component_1.LoginComponent,
+                employee_add_component_1.EmployeeAddComponent, employee_edit_component_1.EmployeeEditComponent],
             providers: [employee_service_1.EmployeeService, login_service_1.LoginService, check_login_guard_1.CheckLoginGuard, check_save_form_guard_1.CheckSaveFormGuard],
             bootstrap: [app_component_1.AppComponent]
         }), 

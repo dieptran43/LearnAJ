@@ -25,13 +25,18 @@ import { EmployeeOverviewComponent } from './employee-overview.component';
 import { EmployeeProjectsComponent } from './employee-projects.component';
 //
 import { LoginComponent } from './login.component';
+///
+import { EmployeeAddComponent } from './employee-add.component';
+import { EmployeeEditComponent } from './employee-edit.component';
+
 
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, appRoutes],
   declarations: [AppComponent, TutorialComponent, EmployeeComponent,
     HomeComponent, NotFoundComponent, EmployeeDetailComponent,
-    EmployeeOverviewComponent, EmployeeProjectsComponent, LoginComponent],
+    EmployeeOverviewComponent, EmployeeProjectsComponent, LoginComponent,
+    EmployeeAddComponent, EmployeeEditComponent],
   providers: [EmployeeService, LoginService, CheckLoginGuard, CheckSaveFormGuard],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,31 @@
+<h3>This is Add page</h3>
+<form class="table" #f="ngForm" (ngSubmit)="AddForm()">
+    <div class="form-group">
+        <label class="col-md-2">Name</label>
+            <div class="col-md-10">
+                <input type="text" name="name" [(ngModel)]="employees.name" />
+            </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2">Age</label>
+        <div>
+            <input type="number" name="age" [(ngModel)]="employees.age" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2">Status</label>
+        <div>
+            <input type="checkbox" name="status" [(ngModel)]="employees.status" />
+        </div>
+    </div>
+    <!--<div class="form-group">
+        <label class="col-md-2">createdAt</label>
+        <div>
+            <input type="text" name="createdAt" [(ngModel)]="employees.createdAt" />
+        </div>
+    </div>-->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" (click)="goToEmployee()" class="btn btn-default">cancel</button>
+    </div>
+</form>
