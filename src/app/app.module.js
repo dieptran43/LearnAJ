@@ -16,6 +16,10 @@ var app_component_1 = require('./app.component');
 var tutorial_component_1 = require('./tutorial.component');
 var employee_component_1 = require('./employee.component');
 var employee_service_1 = require('./services/employee.service');
+//bai 25 Login
+var login_service_1 = require('./services/login.service');
+var check_login_guard_1 = require('./guards/check-login.guard');
+var check_save_form_guard_1 = require('./guards/check-save-form.guard');
 //Ban loi ko tim thay trang
 var notFound_component_1 = require('./notFound.component');
 //
@@ -26,6 +30,8 @@ var app_routes_1 = require('./app.routes');
 var home_component_1 = require('./home.component');
 var employee_overview_component_1 = require('./employee-overview.component');
 var employee_projects_component_1 = require('./employee-projects.component');
+//
+var login_component_1 = require('./login.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -34,8 +40,8 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
             declarations: [app_component_1.AppComponent, tutorial_component_1.TutorialComponent, employee_component_1.EmployeeComponent,
                 home_component_1.HomeComponent, notFound_component_1.NotFoundComponent, employee_detail_component_1.EmployeeDetailComponent,
-                employee_overview_component_1.EmployeeOverviewComponent, employee_projects_component_1.EmployeeProjectsComponent],
-            providers: [employee_service_1.EmployeeService],
+                employee_overview_component_1.EmployeeOverviewComponent, employee_projects_component_1.EmployeeProjectsComponent, login_component_1.LoginComponent],
+            providers: [employee_service_1.EmployeeService, login_service_1.LoginService, check_login_guard_1.CheckLoginGuard, check_save_form_guard_1.CheckSaveFormGuard],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

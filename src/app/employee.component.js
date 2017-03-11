@@ -9,25 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var employee_service_1 = require('./services/employee.service');
 var EmployeeComponent = (function () {
-    function EmployeeComponent(employeeService) {
+    function EmployeeComponent(employeeService, router, activatedRouter) {
         this.employeeService = employeeService;
+        this.router = router;
+        this.activatedRouter = activatedRouter;
     }
     EmployeeComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.activatedRouter.queryParams.subscribe(function (param) {
+            _this.currentPage = param['pageNumber'] || 1;
+            alert(_this.currentPage);
+        });
         this.employeeService.GetList().subscribe(function (respone) {
             _this.employees = respone;
         }, function (error) {
             console.log("Loi API");
         });
+        this.pages = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     };
     EmployeeComponent = __decorate([
         core_1.Component({
             selector: "my_employee",
             templateUrl: "./app/employee.component.html",
         }), 
-        __metadata('design:paramtypes', [employee_service_1.EmployeeService])
+        __metadata('design:paramtypes', [employee_service_1.EmployeeService, router_1.Router, router_1.ActivatedRoute])
     ], EmployeeComponent);
     return EmployeeComponent;
 }());

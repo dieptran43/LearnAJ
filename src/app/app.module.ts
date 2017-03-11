@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { TutorialComponent } from './tutorial.component';
 import { EmployeeComponent } from './employee.component';
 import { EmployeeService } from './services/employee.service';
+//bai 25 Login
+import { LoginService } from './services/login.service';
+import { CheckLoginGuard } from './guards/check-login.guard';
+import { CheckSaveFormGuard } from './guards/check-save-form.guard';
 //Ban loi ko tim thay trang
 import { NotFoundComponent } from './notFound.component';
 //
@@ -19,13 +23,16 @@ import { HomeComponent } from './home.component';
 
 import { EmployeeOverviewComponent } from './employee-overview.component';
 import { EmployeeProjectsComponent } from './employee-projects.component';
+//
+import { LoginComponent } from './login.component';
+
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, appRoutes],
   declarations: [AppComponent, TutorialComponent, EmployeeComponent,
     HomeComponent, NotFoundComponent, EmployeeDetailComponent,
-    EmployeeOverviewComponent, EmployeeProjectsComponent],
-  providers: [EmployeeService],
+    EmployeeOverviewComponent, EmployeeProjectsComponent, LoginComponent],
+  providers: [EmployeeService, LoginService, CheckLoginGuard, CheckSaveFormGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

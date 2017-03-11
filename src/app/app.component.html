@@ -45,8 +45,11 @@
                 <li>
                     <a routerLink="employee" routerLinkActive="active">Employee</a>
                 </li>
+                <li *ngIf="!isLoggedIn">
+                    <a routerLink="login" routerLinkActive="active">Login</a>
+                </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a (click)="Logout()" class="btn btn-primary">LogOut</a>
                 </li>
             </ul>
         </div>
